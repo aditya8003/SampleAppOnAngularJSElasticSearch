@@ -1,0 +1,79 @@
+﻿<head>
+   <script src="http://rawgit.com/YousefED/ElasticUI/master/examples/demo/lib/elastic.js"></script>
+     <script src="bower_components/angular/angular.js"></script>
+   <script src="bower_components/elasticui/elasticui.js"></script>
+ 
+	
+   <script src="http://rawgit.com/YousefED/ElasticUI/master/examples/demo/lib/elasticsearch.angular.js"></script>
+    <script src="http://rawgit.com/YousefED/ElasticUI/master/examples/demo/lib/elastic.js"></script>
+    <script src="http://rawgit.com/YousefED/ElasticUI/master/dist/elasticui.min.js"></script>
+</head>
+<body   eui-index="'searchtest'">
+    <div class="container-fluid"  >
+{{indexVM.results.hits.hits}}
+
+        <div class="row">
+            <div class="col-xs-9 col-xs-offset-3 main">
+                <div class="instructions panel panel-primary">
+                    <b>Last File Received :</b> 1/09/2017 1:00 AM <br>  
+                <b>Last File Sent :</b>  1/09/2017 9:00 AM  <br> 
+		<b># Parts received :</b> 20 <br> 
+                <b># Product Non matches :</b> 20 <br>  
+                <b># DCF Non match :</b>  20  <br> 
+                <b># Seller Uploaded Images :</b> 20 <br>  
+                <b># Parts Inserted/Updated in tool :</b>  20  <br> 
+                <b># Parts sent to eBay :</b> 20 <br>  
+		<h3>Select Data Extract Source</h3>
+		<select ng-model="sourceid" ng-options="Source.Name for Source in Sources">
+		       		</select>
+
+                <h1>Results</h1>
+               
+				  <div class="wrap">  
+				  <ul>
+        <table class="table table-bordered table-condensed f11">
+		 
+
+		<tr>
+				<td width="100%">Distributor Number</td>
+                <td width="150%">Distributor Name</td>			
+				<td width="100%">Website URL</td>		
+				<td width="100%">Theme</td>		
+				<td width="100%">DB Name</td>		
+				<td width="100%">Phone</td>		
+				<td width="100%">Sales Contact</td>		
+				<td width="100%">eBay Seller ID</td>		
+				<td width="100%">Email</td>		
+				<td width="100%">Date</td>		
+			
+			 </tr>
+			  
+                 
+            <tbody>
+			
+			<tr ng-repeat="doc in indexVM.results.hits.hits | filter : sellerid.ebay_seller_id">
+				<td width="100%">{{doc._source.distributor_number}}</td>
+                <td width="150%">{{doc._source.name}}</td>			
+				<td width="100%">{{doc._source.website_url}}</td>		
+				<td width="100%">{{doc._source.theme}}</td>		
+				<td width="100%">{{doc._source.dbname}}</td>		
+				<td width="100%">{{doc._source.admin_phone}}</td>		
+				<td width="100%">{{doc._source.sales_contact}}</td>		
+				<td width="100%">{{doc._source.ebay_seller_id}}</td>		
+				<td width="100%">{{doc._source.WISE_contact_email}}</td>		
+				<td width="100%">{{doc._source.last_updated}}</td>		
+			
+			 </tr>
+			 
+		   </div>
+        </table>
+  
+        </ul>
+					 
+                    </div>
+                
+                <eui-simple-paging></eui-simple-paging>
+            </div>
+        </div>
+    </div>
+	</body>
