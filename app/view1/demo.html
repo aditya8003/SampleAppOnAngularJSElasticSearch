@@ -1,31 +1,46 @@
-﻿<head>
-   <script src="http://rawgit.com/YousefED/ElasticUI/master/examples/demo/lib/elastic.js"></script>
-     <script src="bower_components/angular/angular.js"></script>
-   <script src="bower_components/elasticui/elasticui.js"></script>
- 
-	
-   <script src="http://rawgit.com/YousefED/ElasticUI/master/examples/demo/lib/elasticsearch.angular.js"></script>
-    <script src="http://rawgit.com/YousefED/ElasticUI/master/examples/demo/lib/elastic.js"></script>
-    <script src="http://rawgit.com/YousefED/ElasticUI/master/dist/elasticui.min.js"></script>
-</head>
+﻿ <head>
+ <style>
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            z-index: 1000;
+            display: block;
+            padding: 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: #f5f5f5;
+            border-right: 1px solid #eee;
+        }
+
+        .instructions {
+            display: block;
+            margin: 0 auto;
+            width: 1600px;
+        }
+  .table {
+	table-layout:fixed;
+}
+
+.table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.wrap{width:80%}
+    </style></head>
 <body   eui-index="'searchtest'">
     <div class="container-fluid"  >
-{{indexVM.results.hits.hits}}
+
 
         <div class="row">
             <div class="col-xs-9 col-xs-offset-3 main">
                 <div class="instructions panel panel-primary">
-                    <b>Last File Received :</b> 1/09/2017 1:00 AM <br>  
-                <b>Last File Sent :</b>  1/09/2017 9:00 AM  <br> 
-		<b># Parts received :</b> 20 <br> 
-                <b># Product Non matches :</b> 20 <br>  
-                <b># DCF Non match :</b>  20  <br> 
-                <b># Seller Uploaded Images :</b> 20 <br>  
-                <b># Parts Inserted/Updated in tool :</b>  20  <br> 
-                <b># Parts sent to eBay :</b> 20 <br>  
-		<h3>Select Data Extract Source</h3>
-		<select ng-model="sourceid" ng-options="Source.Name for Source in Sources">
-		       		</select>
+
+		
+		
 
                 <h1>Results</h1>
                
